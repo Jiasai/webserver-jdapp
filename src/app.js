@@ -26,8 +26,8 @@ app.keys=["@JDapp*#^123"] //密钥，用于加密
 app.use(session({
   //配置cookie
   path:'/',
-  httpOnly:true,
-  maxAge:15*24*60*60*1000 //15天
+  httpOnly:true, //只能通过后端修改cookie
+  maxAge:15*24*60*60*1000 //有效期15天
 }));
 
 

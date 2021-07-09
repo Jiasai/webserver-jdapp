@@ -10,8 +10,8 @@
 
 ## 
 
-## `API(接口)设计`
-* [点击访问](http://jdwebapp.thinkshe.com/api/)
+### `API(接口)设计`
+* restful API风格 [点击访问](http://jdwebapp.thinkshe.com/api/)
 
 ### `线上访问地址:`
 * [点击访问](http://jdwebapp.thinkshe.com/)
