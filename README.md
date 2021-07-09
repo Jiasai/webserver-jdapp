@@ -1,6 +1,6 @@
 # 全栈项目：webserver服务端开发
 
-使用koa2框架+MongoDB数据库，完成服务端开发，为jdapp项目提供服务端支持: 接口设计开发、cookie
+使用koa2框架+MongoDB数据库，完成服务端开发，为jdapp项目提供服务端支持: 接口设计、数据模型设计、接口开发、cookie操作
 
 ## 技术栈
 
