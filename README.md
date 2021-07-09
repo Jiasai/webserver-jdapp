@@ -10,9 +10,11 @@
 
 ## 
 
-### `线上访问地址:`
+## `API(接口)设计`
+* [点击访问](http://jdwebapp.thinkshe.com/api/)
 
-http://jdapp.thinkshe.com
+### `线上访问地址:`
+* [点击访问](http://jdwebapp.thinkshe.com/)
 
 ### `npm run dev`
 
