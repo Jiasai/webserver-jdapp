@@ -46,6 +46,28 @@
    message:'errno !== 0 的话，报错提示信息'
 }
 ```
+## 获取用户信息
+
+### url 
+`/api/user/info`
+
+### method  
+`get`
+
+### request body
+无
+
+### response body
+```js
+{
+   errno:0,
+   data:{
+      username:'xxx' 
+   },
+   message:'errno !== 0 的话，报错提示信息'
+}
+```
+
 ## 创建收货地址
 
 ### url 
