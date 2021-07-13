@@ -298,6 +298,7 @@
 ### request body
 ```js
 {
+    username:'18677568425', 
     addressId:'收货地址的 id ',
     shopId:'商店的id',
     shopName:'沃尔玛',

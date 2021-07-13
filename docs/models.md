@@ -52,19 +52,43 @@
 ## 订单
 ```js
 {
-    _id:'xxx',
-    addressId:'收货地址的 id ',
+    username:'18677568425', //唯一
+    _id:'xxx',   
     shopId:'商店的id',
-    shopName:'沃尔玛',
+    shopName:'沃尔玛',    
     isCanceled:false,//订单是否被取消
+    address:{
+        username:'18677568425',//和用户产生关联
+        city:'北京',
+        department:'xxx小区',
+        houseNumber:'门牌号',
+        name:'张三',
+        phone:'18677854562'
+    },
     products:[
         {
-            _id:'商品1 id',
-            num:3 //购买数量
+            product:{
+                shopId:'xxxx',//对应商店的_id
+                tabs:['all','fruits'],//左侧tab类型
+                name:'番茄250g / 份',
+                imgUrl:'xxx.png',
+                sales:153,
+                price:36.8,
+                oldPrice:49.8
+            }
+            orderSales:3 //购买数量
         },
         {
-            _id:'商品2 id',
-            num:5 //购买数量
+          product:{
+                shopId:'xxxx',//对应商店的_id
+                tabs:['all','fruits'],//左侧tab类型
+                name:'番茄250g / 份',
+                imgUrl:'xxx.png',
+                sales:153,
+                price:36.8,
+                oldPrice:49.8
+            }
+            orderSales:3 //购买数量
         }
     ]
 }

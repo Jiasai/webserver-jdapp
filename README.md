@@ -10,8 +10,9 @@
 
 ## 
 
-### `API(接口)设计`
+### `API(接口)设计 & model模型`
 * restful API风格 [点击访问](http://jdwebapp.thinkshe.com/api/)
+* Model 数据模型 [点击访问](http://jdwebapp.thinkshe.com/api/model)
 
 ### `线上访问地址:`
 * [点击访问](http://jdwebapp.thinkshe.com/)
