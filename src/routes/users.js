@@ -8,6 +8,11 @@ const { register, login } = require('../controller/User')
 
 const { SuccessModel, ErrorModel } = require("../res-model");
 
+//Controller
+// router这一层,不做业务处理,仅仅只是将路由和路由的处理函数结合起来.
+
+// 路由的处理函数由Controller层实现
+
 //路由前缀
 router.prefix('/api/user')
 
@@ -23,7 +28,7 @@ router.post('/register', async (ctx, next) => {
 
   } catch (err) {
     console.error(err);
-    ctx.body = new ErrorModel(1001, `注册失败-${err.message}`);
+    ctx.body = new ErrorModel(10001, `注册失败-${err.message}`);
   }
 
 })
@@ -37,16 +42,16 @@ router.post("/login", async (ctx, next) => {
     const userInfo = await login(username, password);
 
     if (userInfo && userInfo?.username) {
-      //返回设置cookie
+      //登录成功，返回,设置session
       ctx.session.userInfo = userInfo;
-      ctx.body = new SuccessModel(userInfo);
+      ctx.body = new SuccessModel();
     } else {
       ctx.body = new ErrorModel(-1, '用户名或密码错误')
     }
 
   } catch (err) {
     console.error(err);
-    ctx.body = new ErrorModel(1002, `登录失败-${err.message}`);
+    ctx.body = new ErrorModel(10002, `登录失败-${err.message}`);
   }
 
 })

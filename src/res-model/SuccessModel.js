@@ -13,6 +13,6 @@ class SuccessModel{
 }
 
 module.exports = SuccessModel;
-
+// new SuccessModel()   {errno:0}
 // new SuccessModel(data)
 // {errno:0,data:...}

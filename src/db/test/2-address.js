@@ -8,7 +8,7 @@ const Address = require('../../models/Address');
 !(async()=>{
 
     //创建1个收货地址
-   /*  await Address.create({
+/*     await Address.create({
         username:"13816431250",
         city:'北京市',
         department:'昌平区展思门路50号佳美小区',
