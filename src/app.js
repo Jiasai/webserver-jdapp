@@ -10,7 +10,8 @@ const cors = require('koa2-cors');
 
 const index = require('./routes/index')
 const users = require('./routes/users')
-const address = require("./routes/address");
+const address = require("./routes/address")
+const shop = require("./routes/shop")
 
 // error handler
 onerror(app)
@@ -56,6 +57,7 @@ app.use(async (ctx, next) => {
 app.use(index.routes(), index.allowedMethods())
 app.use(users.routes(), users.allowedMethods())
 app.use(address.routes(),address.allowedMethods())
+app.use(shop.routes(),shop.allowedMethods())
 
 //allowedMethods():响应 options 方法, 告诉它所支持的请求方法
 

@@ -42,13 +42,28 @@ const getAddressById = async(id)=>{
     return resultAddress
 }
 
-
+/**
+ * 更新当个地址
+ * @param {String} id 地址id
+ * @param {Object} data 更新的数据
+ * @returns {Object} 更新后的地址信息
+ */
+const updateAddress=async(id,username,data)=>{
+    //更新数据库地址
+    const resultAddress = await Address.findOneAndUpdate(
+        {_id:id,username},//查询条件
+        {username,...data},//要更新的数据
+        {new:true} //返回新的
+    );
+    return resultAddress
+}
 
 
  module.exports = {
      createAddress,
      getAddressList,
-     getAddressById
+     getAddressById,
+     updateAddress
 }
 
 

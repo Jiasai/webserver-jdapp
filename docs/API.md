@@ -179,7 +179,7 @@
 `/api/user/address/:id`
 
 ### method  
-`patch`
+`patch` （Restful API规范，更新数据用patch）
 
 ### request body
 ```js
@@ -205,7 +205,7 @@
 `/api/shop/hot-list`
 
 ### method  
-`post`
+`get`
 
 ### request body
 无

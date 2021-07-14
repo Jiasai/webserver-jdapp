@@ -8,7 +8,7 @@ const { SuccessModel, ErrorModel } = require("../res-model");
 //登录校验中间件
 const loginCheck = require("../middlewares/loginCheck")
 //Address的 controller方法
-const { createAddress,getAddressList,getAddressById } = require("../controller/Address")
+const { createAddress,getAddressList,getAddressById,updateAddress } = require("../controller/Address")
 
 //路由前缀
 router.prefix('/api/user/address')
@@ -46,18 +46,22 @@ router.get("/:id",loginCheck,async(ctx,next)=>{
     //获取id
     const id = ctx.params.id;
     //查询单个地址
-    const address = await getAddressById(id)
-    ctx.body = new SuccessModel(address)
+    const newaddress = await getAddressById(id)
+    ctx.body = new SuccessModel(newaddress)
 
 })
 
-
 //更新收货地址
-
-
-
-
-
+router.patch('/:id',loginCheck,async(ctx,next)=>{
+    const id = ctx.params.id;
+    const data = ctx.request.body;
+    const username= ctx.seesion.userInfo.username
+    //数据库更新地址
+    const newaddress = await updateAddress(id,username,data);
+    ctx.body = new SuccessModel(newaddress)
+})
 
 
 module.exports = router
+
+
