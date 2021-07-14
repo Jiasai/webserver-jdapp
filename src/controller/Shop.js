@@ -1,3 +1,7 @@
+/**
+ * @description shop controller
+ * @author Masion
+ */
 const Shop = require("../models/Shop")
 const Product = require("../models/Product")
 /**
@@ -24,13 +28,13 @@ const getShopById = async(id)=>{
 /**
  * //查询某个商店某个tab的商品列表
  * @param {String} shopId 店铺id
- * @param {Object} query url参数tabs= 
+ * @param {String} tab url参数tab分类
  * @returns 不同tabs分类商品列表
  */
-const getShopProductList = async(shopId,query)=>{
+const getShopProductList = async(shopId,tab="全部商品")=>{
     //查询某个商店某个tab的商品列表
-    const productList = await Product.find({shopId,tabs:{$in:query.tabs}})
-//Product.find({shopId,tabs:query.tabs})
+    const productList = await Product.find({shopId,tabs:{$in:tab}})
+//Product.find({shopId,tabs:tab})
     return productList;
 }
 

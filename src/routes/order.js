@@ -1,0 +1,44 @@
+/**
+ * @description Order router
+ * @author Masion
+ */
+
+ const router = require('koa-router')()
+ const { SuccessModel, ErrorModel } = require("../res-model");
+
+ //登录校验中间件
+const loginCheck = require("../middlewares/loginCheck")
+
+  //Shop和Product 的controller方法
+  const {createOrder,getOrderList } = require("../controller/Order")
+ 
+  //路由前缀
+  router.prefix('/api/order')
+
+  //创建订单
+  router.post("/",loginCheck,async(ctx,next)=>{
+
+    const body = ctx.request.body;
+    //创建订单
+    const newOrder = await createOrder(body);
+
+    ctx.body = new SuccessModel(newOrder)
+
+  })
+
+  //获取所有订单
+  router.get("/",loginCheck,async(ctx,next)=>{
+      const username = ctx.session.userInfo.username;
+      //查询订单列表
+      const orderList = await getOrderList(username);
+
+      ctx.body = new SuccessModel(orderList);
+    
+  })
+
+
+
+
+
+
+  module.exports = router

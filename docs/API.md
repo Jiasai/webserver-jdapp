@@ -326,5 +326,55 @@
    message:'errno !==0 时错误信息'
 }
 ```
+## 查询订单列表
+
+### url 
+`/api/order`
+
+### method  
+`get`
+
+### request body
+无
+
+### response body
+```js
+{
+   errno:0,
+   data:[
+       {
+       _id:'订单的 id',
+        username:'13816431250', 
+        addressId:'收货地址的 id ',
+        shopId:'商店的id',
+        shopName:'沃尔玛',
+        isCanceled:false,//订单是否被取消
+        address:{
+           username:"13816431250",city:"上海市",
+           department:"甜水园东街7号道家园小区",
+           houseNumber:"8栋306",
+           name:"韩梅梅",
+           phone:"13826581688" 
+        },
+        products:[
+            {
+                product:{
+                   tabs:["全部商品","新鲜水果"],
+                   shopId:"60ebec074c403b4ce0d01b88",
+                   name:"甘肃苹果 2kg",imgUrl:"https://img30.360buyimg.com/n1//s160x160_jfs/t1/172941/22/14122/47483/...",sales:28,
+                   price:36.5,
+                   oldPrice:49.8 
+                },
+                orderSales:3
+            }
+        ]
+      }
+   ],
+   message:'errno !==0 时错误信息'
+}
+```
+
+
+
 
 

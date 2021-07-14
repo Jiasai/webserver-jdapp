@@ -5,10 +5,7 @@
  const router = require('koa-router')()
  const { SuccessModel, ErrorModel } = require("../res-model");
  
- //登录校验中间件
- const loginCheck = require("../middlewares/loginCheck")
-
- //Shop的 controller方法
+ //Shop和Product 的controller方法
  const { getShopList,getShopById,getShopProductList } = require("../controller/Shop")
  
  //路由前缀
@@ -37,14 +34,10 @@ router.get("/:id/products",async(ctx,next)=>{
     const query = ctx.query;  //url参数
     const id = ctx.params.id; //店铺id
     //从数据库获取商店商品列表
-    const productList = await getShopProductList(id,query);
+    const productList = await getShopProductList(id,query?.tabs);
 
     ctx.body= new SuccessModel(productList);
 })
 
-
-
-
-
-
+//导出
  module.exports = router
