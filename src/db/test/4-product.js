@@ -20,10 +20,39 @@ const Product = require('../../models/Product')
     }) */
     
     //查询某个商店某个tab的商品列表
-    const shopId = '60ebec074c403b4ce0d01b88';
-    const result = await Product.find({shopId,tabs:{$in:'新鲜水果'}}).sort({_id:-1})
-    if(result.length===0) return;
-    console.log('沃尔玛商店乳品烘焙分类的商品是：',result)
+    const shopId = '60ebec074c403b4ce0d01b88'
+    const shopId2 = '60ebec6df9887b0c14c82f32'
+    const shopId3 = '60ebecc6a7b44d4fb47a73bb'
+    const shopId4 = '60ebecffbf7da119944fd11f'
+
+    const productList = await Product.find({shopId}).sort({updatedAt:-1});
+    console.log(productList);
+    for (const item of productList) { //批量复制，创建
+        item.shopId = shopId4;
+        const {
+            tabs,
+            shopId,
+            name,
+            imgUrl,
+            sales,
+            price,
+            oldPrice
+          }=item;
+        await Product.create({
+            tabs,
+            shopId,
+            name,
+            imgUrl,
+            sales,
+            price,
+            oldPrice
+          });
+    }
+
+    //批量更新
+    //const result = await Product.updateMany({shopId,tabs:{$in:'frozen'}},{tabs:["all","frozen"]},{})
+    // if(result.length===0) return;
+    // console.log('沃尔玛商店乳品烘焙分类的商品是：',result)
 
 
 })();

@@ -30,7 +30,7 @@ app.use(session({
   //配置cookie
   path: '/',
   httpOnly: true, //只能通过后端修改cookie
-  maxAge: 15 * 24 * 60 * 60 * 1000 //有效期15天
+  maxAge: 15 * 24 * 60 * 60 //有效期15天,maxAge单位：秒
 }));
 
 

@@ -11,7 +11,7 @@ const Order = require("../models/Order")
  * 创建新订单
  * @param {Object} body 创建订单请求信息 
  */
-const createOrder = async (body) => {
+const createOrder = async (username,body) => {
 
     //获取Address 信息
     const address = await Address.findById(body.addressId);
@@ -21,13 +21,13 @@ const createOrder = async (body) => {
     for (const item of body.products) { //使用for...of遍历，forEach不可以
         const itemProduct = {};
         itemProduct.orderSales = item.num;
-        itemProduct.product = await Product.findById(item._id);
+        itemProduct.product = await Product.findById(item.id);
         resultProducts.push(itemProduct);
     }
 
     //数据库创建一个新订单
     const newOrder = await Order.create({
-        username: body.username,
+        username,
         shopId: body.shopId,
         shopName: body.shopName,
         isCanceled: body.isCanceled,

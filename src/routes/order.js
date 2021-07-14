@@ -18,9 +18,10 @@ router.prefix('/api/order')
 //创建订单
 router.post("/", loginCheck, async (ctx, next) => {
     try {
+        const username = ctx.session.userInfo?.username;
         const body = ctx.request.body;
         //创建订单
-        const newOrder = await createOrder(body);
+        const newOrder = await createOrder(username,body);
 
         ctx.body = new SuccessModel(newOrder)
     } catch (err) {

@@ -12,7 +12,7 @@ const Product = require("../models/Product")
  */
 const getShopList = async () => {
     //查询商店列表
-    const shopList = await Shop.find().sort({ updatedAt: -1 });
+    const shopList = await Shop.find().sort({ updatedAt: 1 });
     return shopList;
 }
 
@@ -35,9 +35,9 @@ const getShopById = async (id) => {
  * @param {String} tab url参数tab分类
  * @returns 不同tabs分类商品列表
  */
-const getShopProductList = async (shopId, tab = "全部商品") => {
+const getShopProductList = async (shopId, tabs = "all") => {
     //查询某个商店某个tab的商品列表
-    const productList = await Product.find({ shopId, tabs: { $in: tab } })
+    const productList = await Product.find({ shopId, tabs: { $in: tabs } })
     //Product.find({shopId,tabs:tab})
     return productList;
 }
