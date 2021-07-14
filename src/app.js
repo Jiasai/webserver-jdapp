@@ -20,23 +20,23 @@ onerror(app)
 
 //配置跨域
 app.use(cors({
-  origin:'http://localhost:8080',
-  credentials:true //允许跨域带cookie
+  origin: 'http://localhost:8080',
+  credentials: true //允许跨域带cookie
 }));
 
 //使用session和cookie
-app.keys=["@JDapp*#^123"] //密钥，用于加密
+app.keys = ["@JDapp*#^123"] //密钥，用于加密
 app.use(session({
   //配置cookie
-  path:'/',
-  httpOnly:true, //只能通过后端修改cookie
-  maxAge:15*24*60*60*1000 //有效期15天
+  path: '/',
+  httpOnly: true, //只能通过后端修改cookie
+  maxAge: 15 * 24 * 60 * 60 * 1000 //有效期15天
 }));
 
 
 // middlewares
 app.use(bodyparser({
-  enableTypes:['json', 'form', 'text']
+  enableTypes: ['json', 'form', 'text']
 }))
 app.use(json())
 app.use(logger())
@@ -57,9 +57,9 @@ app.use(async (ctx, next) => {
 // 注册使用routes
 app.use(index.routes(), index.allowedMethods())
 app.use(users.routes(), users.allowedMethods())
-app.use(address.routes(),address.allowedMethods())
-app.use(shop.routes(),shop.allowedMethods())
-app.use(order.routes(),order.allowedMethods())
+app.use(address.routes(), address.allowedMethods())
+app.use(shop.routes(), shop.allowedMethods())
+app.use(order.routes(), order.allowedMethods())
 
 //allowedMethods():响应 options 方法, 告诉它所支持的请求方法
 

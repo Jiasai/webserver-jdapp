@@ -3,19 +3,15 @@
  * @author Masion
  */
 
- const Product = require("../models/Product")
- const Address = require("../models/Address")
- const Order = require("../models/Order")
- 
-
-
-
+const Product = require("../models/Product")
+const Address = require("../models/Address")
+const Order = require("../models/Order")
 
 /**
  * 创建新订单
  * @param {Object} body 创建订单请求信息 
  */
-const createOrder = async(body)=>{
+const createOrder = async (body) => {
 
     //获取Address 信息
     const address = await Address.findById(body.addressId);
@@ -46,10 +42,10 @@ const createOrder = async(body)=>{
  * 查询订单列表
  * @param {String} username 用户名
  */
-const getOrderList = async(username) =>{
+const getOrderList = async (username) => {
 
     //查找订单列表
-    const orderList = await Order.find({username}).sort({updatedAt:-1});
+    const orderList = await Order.find({ username }).sort({ updatedAt: -1 });
 
     return orderList
 
