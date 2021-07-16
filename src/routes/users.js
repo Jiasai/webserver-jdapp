@@ -67,5 +67,16 @@ router.post("/login", async (ctx, next) => {
 
 })
 
+//退出登录路由
+router.get("/logout",async(ctx,next)=>{
+	ctx.session.userInfo = {};
+	ctx.body = new ErrorModel(10003, '退出登录')
+})
+
+
+
+
+
+
 
 module.exports = router
