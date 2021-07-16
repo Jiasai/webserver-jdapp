@@ -18,7 +18,8 @@
     department:'xxx小区',
     houseNumber:'门牌号',
     name:'张三',
-    phone:'18677854562'
+    phone:'18677854562',
+	defaultAddress:true
 }
 ```
 

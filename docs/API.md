@@ -1,5 +1,24 @@
 # API(接口)设计
 
+## 查询用户名
+
+### url 
+`/api/user/register:username`
+
+### method  
+`get`
+
+### request body
+无
+
+### response body
+```js
+{
+    errno:0,
+    message:'errno !== 0 的话，报错提示信息'
+}
+```
+
 ## 注册
 
 ### url 
@@ -83,7 +102,8 @@
     department:'xxx小区',
     houseNumber:'门牌号',
     name:'张三',
-    phone:'18677854562'
+    phone:'18677854562',
+	defaultAddress:true
 }
 ```
 
@@ -98,6 +118,7 @@
        houseNumber:'门牌号',
        name:'张三',
        phone:'18677854562',
+	   defaultAddress:true,
        createdAt: Date,
        createdAt: Date
    }
@@ -127,6 +148,7 @@
          houseNumber:'门牌号',
          name:'张三',
          phone:'18677854562',
+		 defaultAddress:true,
          createdAt: Date,
          createdAt: Date
        },
@@ -137,6 +159,7 @@
          houseNumber:'门牌号',
          name:'张三',
          phone:'18677854562',
+		 defaultAddress:true,
          createdAt: Date,
          createdAt: Date          
        }
@@ -167,6 +190,7 @@
        houseNumber:'门牌号',
        name:'张三',
        phone:'18677854562',
+	   defaultAddress:true,
        createdAt: Date,
        createdAt: Date       
    },
@@ -189,6 +213,7 @@
      houseNumber:'门牌号',
      name:'张三',
      phone:'18677854562',
+	 defaultAddress:true
 }
 ```
 

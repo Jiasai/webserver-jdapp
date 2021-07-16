@@ -30,7 +30,15 @@ return resultUser;
 
 }
 
+/**
+ * 查询用户名
+ * @param {string} username 用户名
+ * */
+const findUser = async(username)=>{
+	const resultUser = await User.findOne({username});
+	return resultUser
+}
 
 
 
-module.exports = {register,login}
+module.exports = {register,login,findUser}

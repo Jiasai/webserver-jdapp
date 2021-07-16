@@ -4,7 +4,7 @@
 */
 const router = require('koa-router')()
 
-const { register, login } = require('../controller/User')
+const { register, login ,findUser } = require('../controller/User')
 
 const { SuccessModel, ErrorModel } = require("../res-model");
 
@@ -15,6 +15,17 @@ const { SuccessModel, ErrorModel } = require("../res-model");
 
 //路由前缀
 router.prefix('/api/user')
+
+//查询用户名是否可用
+router.get("/register/:username",async(ctx,next)=>{
+	const username = ctx.params.username;
+	const user = await findUser(username);	
+	if(!user&&!user?.username){
+		ctx.body = new SuccessModel();
+	}else{
+		ctx.body = new ErrorModel(-1, '用户名已存在')
+	}
+})
 
 //注册路由
 router.post('/register', async (ctx, next) => {

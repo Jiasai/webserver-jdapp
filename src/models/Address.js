@@ -14,7 +14,11 @@ const Schema = mongoose.Schema({
     department:String, 
     houseNumber:String, 
     name:String, 
-    phone:String
+    phone:String,
+	defaultAddress:{
+		type:Boolean,
+		default:false
+	}
 },{timestamps:true})
 
 const Address = mongoose.model('address',Schema);
