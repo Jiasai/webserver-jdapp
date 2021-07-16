@@ -25,8 +25,9 @@ const getAddressList = async(username)=>{
   */
  const createAddress =async(username,data)=>{
 	 //判断defaultAddress 的状态
-	const addressList =getAddressList(username);
-	if(!addressList || addressList?.length<1){
+	const addressList =await getAddressList(username);
+	//如果地址1个没有，第一个为默认地址
+	if(addressList?.length<1){
 		data.defaultAddress = true;
 	}else{
 		if(data.defaultAddress){
