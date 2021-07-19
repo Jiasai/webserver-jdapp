@@ -20,7 +20,7 @@ onerror(app)
 
 //配置跨域
 app.use(cors({
-  origin: 'http://localhost:8081',
+  origin: 'http://localhost:8080',
   credentials: true //允许跨域带cookie
 }));
 
